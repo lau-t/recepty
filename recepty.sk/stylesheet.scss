@@ -1,0 +1,223 @@
+$bcgcolor: #FEFEFE;
+@font-face {
+    font-family: 'Header Font';
+    src: url(i-love-glitter.regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Paragraph Text';
+    src: url(SkarpaLt.ttf) format('truetype');
+}
+
+@import 'animations';
+body {
+    margin: 0;
+    padding: 0;
+    background-color: $bcgcolor;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.header {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    background-image: url(headerImg.png);
+    min-height: 100vh;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    background-repeat: no-repeat;
+    .headerText {
+        font-family: "Header Font";
+        font-size: 10vw;
+        color: white;
+        h1 {
+            margin: 0;
+            margin-left: 80px;
+            padding: 0%;
+            font-weight: 100;
+        }
+    }
+}
+
+.main {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    a {
+        margin: 0 50px;
+        text-decoration: none;
+        width: 25%;
+        img {
+            border-radius: 50%;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+            width: 100%;
+        }
+        p {
+            position: relative;
+            font-family: "Paragraph Text";
+            font-size: 4.5vw;
+            text-decoration-style: none;
+            text-align: center;
+            color: black;
+        }
+        img:hover {
+            -webkit-animation: wobble-hor-bottom 0.8s both;
+            animation: wobble-hor-bottom 0.8s both;
+        }
+    }
+}
+
+/*sub*/
+
+.subHeader {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    background-color: $bcgcolor;
+    .header2 {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        img {
+            border-radius: 50%;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+            height: auto;
+            width: 8vw;
+            margin: 50px;
+        }
+        h1 {
+            margin: 0;
+            padding: 0;
+            font-family: "Header Font";
+            font-size: 6vw;
+            font-weight: 100;
+        }
+    }
+    #backbutton {
+        border-radius: 50%;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        height: 80px;
+        margin: 50px;
+        -webkit-transition: all 0.25s ease-in-out;
+        transition: all 0.25s ease-in-out;
+    }
+    .volneMiesto {
+        height: 150px;
+        padding: 150px;
+    }
+    #backbutton:hover {
+        -webkit-box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.05), 0 6px 6px rgba(0, 0, 0, 0.15);
+        box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.05), 0 6px 6px rgba(0, 0, 0, 0.15);
+        transform: translateY(-8px);
+    }
+}
+
+.navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 200px;
+    a {
+        text-decoration: none;
+    }
+    #naspat {
+        display: none;
+    }
+    p {
+        display: flex;
+        flex-direction: column;
+        font-family: "Paragraph Text";
+        color: black;
+        font-size: 3.5vw;
+        transition: 0.15s ease-in;
+    }
+    p::after {
+        content: "";
+        padding: 0.5px;
+        transform: scaleX(0);
+        border-radius: 20px;
+        background-color: black;
+        transition: 0.15s ease-in;
+    }
+    p:hover {
+        transform: translateY(-5px);
+    }
+    p:hover::after {
+        transform: scaleX(2);
+    }
+
+}
+
+@media only screen and (max-width: 992px) {
+    .header {
+        .headerText {
+            font-size: 12vw;
+            width: 100%;
+            text-align: center;
+            h1 {
+                margin-left: 0;
+            }
+        }
+    }
+    .main {
+        flex-direction: column;
+        a {
+            display: flex;
+            width: 50%;
+            flex-direction: row;
+            justify-content: left;
+            align-items: center;
+            img { 
+                width: 40%; 
+                height: 100%;
+                margin: 20px;
+            }
+            p{
+                font-size: 5.5vw;
+                margin: auto;
+                text-align: left;
+            }
+            img:hover {
+                -webkit-animation: none;
+                animation: none;
+            }
+        }
+    }
+    .subHeader {
+        justify-content: center;
+        align-items: center;
+        .header2 {
+
+            h1 {
+                font-size: 10vw;
+            }
+            img {
+                height: auto;
+                width: 12vw;
+            }
+        }
+        #backbutton {
+            display: none;
+        }
+        .volneMiesto {
+            display: none;
+        }
+    }
+    .navbar {
+        #naspat {
+            display: initial;
+        }
+        p {
+            font-size: 5vw;
+        }
+    }
+}
